@@ -9,7 +9,6 @@ import { getCookie } from "typescript-cookie";
 
 const Home = () => {
   const [allPavti, setAllPavti] = useState<[pavti] | [] | null>([]);
-  const cookie = getCookie("authentication");
 
   const getData = async () => {
     const authenticationCookie = getCookie("authentication");
@@ -30,7 +29,6 @@ const Home = () => {
         });
     }
   };
-
   useEffect(() => {
     getData();
   }, []);
@@ -41,20 +39,19 @@ const Home = () => {
           आपण केलेल्या सहकार्याबद्दल आपले आभार
         </p>
         <div className="flex flex-col space-y-5">
-          {allPavti?.length
-            ? allPavti.map((pavti, i) => (
-                <PavtiCard
-                  key={i}
-                  pavti_no={pavti.pavti_no}
-                  pavti_Date={pavti.pavti_Date}
-                  Dengidar_name={pavti.Dengidar_name}
-                  Dengidar_money={pavti.Dengidar_money}
-                  Dengidar_Address={pavti.Dengidar_Address}
-                  Shera={pavti.Shera}
-                  mobile={pavti.mobile}
-                />
-              ))
-            : null}
+          {allPavti?.length &&
+            allPavti.map((pavti, i) => (
+              <PavtiCard
+                key={i}
+                pavti_no={pavti.pavti_no}
+                pavti_Date={pavti.pavti_Date}
+                Dengidar_name={pavti.Dengidar_name}
+                Dengidar_money={pavti.Dengidar_money}
+                Dengidar_Address={pavti.Dengidar_Address}
+                Shera={pavti.Shera}
+                mobile={pavti.mobile}
+              />
+            ))}
         </div>
       </div>
     </React.Fragment>

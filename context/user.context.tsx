@@ -3,6 +3,7 @@ import { getCookie, setCookie } from "typescript-cookie";
 import { hasCookie, deleteCookie } from "cookies-next";
 import axios from "axios";
 import { MyProp, contextUser, resUser } from "@/Types/AllTypes";
+import { useRouter } from "next/router";
 
 export const AdminContext = createContext<contextUser>({
   currentAdmin: null,
@@ -10,6 +11,7 @@ export const AdminContext = createContext<contextUser>({
 });
 
 export const AdminProvider = ({ children }: MyProp) => {
+  const router = useRouter();
   const [currentAdmin, setCurrentAdmin] = useState<null | resUser>(null);
   const value = {
     currentAdmin: currentAdmin,
@@ -33,7 +35,7 @@ export const AdminProvider = ({ children }: MyProp) => {
       } catch (err) {
         console.log(err);
         deleteCookie("authentication");
-        window.location.href = new URL("/").href;
+        router.push("/");
       }
 
       const authenticationCookie = getCookie("authentication");

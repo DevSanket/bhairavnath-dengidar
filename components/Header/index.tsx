@@ -1,14 +1,17 @@
 import { deleteCookie } from "cookies-next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
 const Header = () => {
+  const router = useRouter();
+
   const handleLogout = () => {
     if (confirm("Are you sure to logout ?")) {
       deleteCookie("authentication");
-      window.location.href = new URL("/login").href;
     }
+    router.push("/");
   };
 
   return (
