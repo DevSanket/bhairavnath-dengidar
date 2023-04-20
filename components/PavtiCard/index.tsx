@@ -16,7 +16,7 @@ const PavtiCard = ({
       <p>देणगीदाराचे नाव : {Dengidar_name}</p>
       <p>देणगीदाराचा पत्ता : {Dengidar_Address}</p>
       <p>देणगीदाराचा फोन नंबर : {mobile}</p>
-      <p>देणगीदाराने दिलेली रक्कम : {Dengidar_money} रुपये</p>
+      <p>देणगीदाराने दिलेली रक्कम : {Dengidar_money.$numberDecimal} रुपये</p>
       <p>शेरा : {Shera}</p>
     </div>
   );
