@@ -50,6 +50,7 @@ const Login = () => {
         }
       })
       .catch((error) => {
+        toast.error("पावती मिळाली नाही");
         console.log(error);
       });
   };
