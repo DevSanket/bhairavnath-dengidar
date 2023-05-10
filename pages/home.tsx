@@ -36,7 +36,7 @@ const Home = () => {
     <React.Fragment>
       <div className="md:max-w-[800px] sm:w-w-full py-10 mx-auto sm:px-5 space-y-4">
         <p className="font-medium text-center text-lg">
-          आपण केलेल्या सहकार्याबद्दल आपले आभार
+          भैरवनाथ मंदिर संवर्धन समिती कडून आपले आभार
         </p>
         <div className="flex flex-col space-y-5">
           {allPavti?.length &&
